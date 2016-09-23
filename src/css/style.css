@@ -1,0 +1,18 @@
+body {
+    background-color: aliceblue;
+}
+
+.header {
+    height: 200px;
+    background-color: cyan;
+}
+
+.content {
+    height: 500px;
+    background-color: aquamarine;
+}
+
+.footer {
+    height: 200px;
+    background-color: chartreuse;
+}
