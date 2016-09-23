@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
     <title>html demo</title>
     <meta name="viewport"
@@ -10,16 +8,53 @@
 </head>
 
 <body>
-<div class="header">
-    Hello world!!!
-</div>
-
+<header>
+    <nav>
+        <ul id="nav-list">
+            <li><a href="#" title="Home">Home</a></li>
+            <li><a href="#" title="About">About</a></li>
+        </ul>
+    </nav>
+</header>
 <div class="content">
-    Hello world!!!
-</div>
+    <section id="first">
+        Hello First
+    </section>
+    <section id="second">
+        Hello Second
+    </section>
+    <!-- static -->
+    <section id="static">
+        Hello Third
+    </section>
+    <!-- relative -->
+    <section id="relative">
+        Hello Fouth
+    </section>
+    <!-- fixed -->
+    <section id="fixed">
+        Hello fixed
+    </section>
+    <!-- absolute -->
+    <section id="absolute_r">
+        Hello absolute r
+        <section id="absolute">
+            Hello absolute
+        </section>
+    </section>
+    <!-- float -->
+    <section id="float">
+        <div class="float1">
+            Hello float 111
+        </div>
+        <div class="float2">
+            Hello float 222
+        </div>
+    </section>
 
-<div class="footer">
-    Hello world!!!
 </div>
+<footer>
+    footer End
+</footer>
 </body>
 </html>

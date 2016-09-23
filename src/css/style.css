@@ -2,17 +2,82 @@ body {
     background-color: aliceblue;
 }
 
-.header {
-    height: 200px;
+header {
+    font-size: large;
+    height: 100px;
     background-color: cyan;
+    text-align: center;
 }
 
 .content {
-    height: 500px;
+    width: 300px;
+    height: auto;
     background-color: aquamarine;
+    margin: 100px auto;
+    max-width: 300px;
 }
 
-.footer {
-    height: 200px;
+footer {
+    height: 100px;
     background-color: chartreuse;
+    text-align: end;
 }
+
+#first {
+    width: 300px;
+    background-color: snow;
+    margin: 10px auto;
+}
+
+#second {
+    width: 300px;
+    background-color: snow;
+    margin: 10px auto;
+    padding: 50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#static {
+    background-color: yellow;
+    position: static;
+}
+
+#relative {
+    position: relative;
+    background-color: khaki;
+    left: 20px;
+    top: -10px;
+}
+
+#fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    background-color: brown;
+}
+
+#absolute_r {
+    position: relative;
+    background-color: cornflowerblue;
+}
+
+#absolute {
+    position: absolute;
+    left: 20px;
+    background-color: blueviolet;
+}
+
+.float1 {
+     margin: 50px auto;
+     float: left;
+     background-color: darkgreen;
+     padding: 20px;
+ }
+.float2 {
+    clear: left;
+}
+
+
