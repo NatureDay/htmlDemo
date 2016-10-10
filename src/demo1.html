@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="utf-8"/>
+    <title>Flex</title>
+    <style type="text/css">
+        html {
+            width: 100%;
+            height: 100%;
+            background-color: chartreuse;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: aquamarine;
+            height: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            background-color: beige;
+            height: 70%;
+        }
+
+        .content div {
+            font-size: 40px;
+        }
+
+        .footer {
+            background-color: cornflowerblue;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*h1 {*/
+        /*display: flex;*/
+        /*align-items: center;*/
+        /*height: 10rem;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<header class="header">
+    <h1>OMG, I’m centered</h1>
+</header>
+
+<section class="content">
+    <div>
+        <p>
+            多个无人个人个人我个人个人各位人个人个人过热个人个人更<br/>
+            多个无人个人个人我个人个人各位人个人个人过热个人个人更<br/>
+            多个无人个人个人我个人个人各位人个人个人过热个人个人更<br/>
+            多个无人个人个人我个人个人各位人个人个人过热个人个人更<br/>
+            多个无人个人个人我个人个人各位人个人个人过热个人个人更<br/>
+        </p>
+    </div>
+</section>
+
+<footer class="footer">
+    这是底部区域
+</footer>
+</body>
+</html>
