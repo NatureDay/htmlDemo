@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="html5，登录">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <title>登录</title>
+
+    <link rel="stylesheet" href="css/login.css"/>
+    <script src="js/zepto.js" type="text/javascript"></script>
+
+    <script>
+        function doSubmit() {
+            var phone = $('#phone').value;
+            var password = $('#password').value;
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.anz001.com/api/login',
+                dataType: 'json',
+                timeout: 300,
+                data: JSON.stringify({username: $('#phone').value, pwd: $('#password').value, remember_me: true}),
+                contentType: 'application/json',
+                success: function (data) {
+                    console.log(data);
+                    var code = data.code;
+                    alert(code);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        }
+    </script>
+
+</head>
+<body>
+<div id="top">
+    <img id="logo" src="img/ic_login_logo.png"/>
+</div>
+
+<div id="center">
+    <input id="phone" class="input" type="tel" name="username" placeholder="请输入手机号码" pattern="[0-9]{11}"
+           autocomplete="on"><br>
+    <input id="password" class="input" type="password" name="pwd" placeholder="请输入密码" autocomplete="on"><br>
+    <input id="submit" type="button" value="登录" onclick="doSubmit()">
+</div>
+
+</body>
+</html>

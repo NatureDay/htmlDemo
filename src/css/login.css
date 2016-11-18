@@ -1,0 +1,45 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#top {
+    width: 100%;
+    height: 15rem;
+    background-color: azure;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#logo {
+    width: 10rem;
+    height: 10rem;
+}
+
+#center {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    background-color: blanchedalmond;
+    padding: 2rem;
+
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit {
+    width: 10rem;
+    height: auto;
+}
