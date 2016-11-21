@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="html5，列表">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <title>列表</title>
+
+    <link rel="stylesheet" href="css/list.css"/>
+
+    <script src="js/zepto.js" type="text/javascript"></script>
+
+    <script>
+        function test() {
+            var ul = document.getElementById('list');
+
+            var li = document.createElement('li');
+            li.innerHTML = "我是动态添加的";
+
+            ul.appendChild(li);
+        }
+    </script>
+</head>
+<body>
+
+<header class="header">
+    <h1>列表demo</h1>
+</header>
+
+<section content="content">
+    <ul id="list">
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+</section>
+<footer>
+    <button type="button" onclick="test()">Click</button>
+</footer>
+</body>
+</html>
