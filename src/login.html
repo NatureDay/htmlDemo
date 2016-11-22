@@ -12,14 +12,14 @@
 
     <script>
         function doSubmit() {
-            var phone = document.getElementById('phone1').value;
-            var password = document.getElementById('password1').value;
+            var phones = $('#phone1');
+            var passwords = $("#password1");
             $.ajax({
                 type: 'POST',
                 url: 'http://www.anz001.com/api/login',
                 dataType: 'json',
                 timeout: 300,
-                data: JSON.stringify({username: phone, pwd: password, remember_me: true}),
+                data: JSON.stringify({username: phones.get(0).value, pwd: passwords.get(0).value, remember_me: true}),
                 contentType: 'application/json',
                 success: function (data) {
                     console.log(data);
