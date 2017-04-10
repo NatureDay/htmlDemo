@@ -29,6 +29,26 @@ footer {
     margin: 10px auto;
 }
 
+@media screen  and (max-width: 960px) {
+    body {
+        padding-bottom: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 3rem;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    body {
+        padding-bottom: 4.5rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 4.5rem;
+        font-size: 3rem;
+    }
+}
+
 #second {
     width: 300px;
     background-color: snow;
@@ -71,11 +91,12 @@ footer {
 }
 
 .float1 {
-     margin: 50px auto;
-     float: left;
-     background-color: darkgreen;
-     padding: 20px;
- }
+    margin: 50px auto;
+    float: left;
+    background-color: darkgreen;
+    padding: 20px;
+}
+
 .float2 {
     clear: left;
 }
