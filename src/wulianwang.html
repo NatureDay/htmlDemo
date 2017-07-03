@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>物联网</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 640) + 'px';
+                    console.log("------------111size:" + docEl.style.fontSize);
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div style="font-size: 1rem" id="test">
+    6666
+</div>
+<script type="text/javascript">
+    var arr = document.getElementById("test");
+    console.log("-------222-----size:" + arr.style.fontSize);
+</script>
+<img src="img/img_iot.jpg" style="width: 100%;height: auto">
+</body>
+</html>
