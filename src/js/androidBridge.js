@@ -13,29 +13,29 @@
         /**
          * JS调用Java
          * @param className             类名
-         * @param functionName          方法名
+         * @param methodName            方法名
          * @param params                参数
          * @param callback              回调
          */
-        doCall: function (className, functionName, params, callback) {
+        doCall: function (className, methodName, params, callback) {
             // 解决连续调用问题
             var _this = this;
             if (this.lastCallTime && (Date.now() - this.lastCallTime) < 100) {
                 setTimeout(function () {
-                    _this.doCall(className, functionName, params, callback);
+                    _this.doCall(className, methodName, params, callback);
                 }, 100);
                 return;
             }
             this.lastCallTime = Date.now();
 
-            if (this.isNull(className) || this.isNull(functionName)) {
-                console.log("---------androidBridge need className and functionName---------");
+            if (this.isNull(className) || this.isNull(methodName)) {
+                console.log("---------androidBridge need className and methodName---------");
                 return;
             }
 
             var requestData = {};
             requestData.javaClassName = className;
-            requestData.javafunctionName = functionName;
+            requestData.javafunctionName = methodName;
             if (!this.isNull(params)) {
                 requestData.javaParams = params;
             }
