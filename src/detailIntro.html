@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/mobi.css/1.1.0/mobi.min.css"/>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 640) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body {
+            padding: 1rem;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app" v-cloak>
+    <p v-html="content"></p>
+</div>
+
+<script>
+    var editor = new Vue({
+        el: "#app",
+        data: {
+            content: ""
+        },
+        methods: {
+            setContent: function (str) {
+                this.content = str;
+            }
+        }
+    })
+</script>
+</body>
+</html>

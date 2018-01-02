@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品介绍</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <script src="./js/vue-html5-editor.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 640) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+    <style>
+        img {
+            width: 100%;
+        }
+
+        #app {
+            margin: 1rem auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <vue-html5-editor :content="content" :height="500" @change="setContent"></vue-html5-editor>
+</div>
+
+<script>
+    Vue.use(VueHtml5Editor, {
+        language: "zh-cn",
+        visibleModules: [
+            "image",
+            "text",
+            "align",
+            "tabulation",
+            "hr"
+        ],
+        image: {
+            upload: {
+                url: "http://admintest.qmant.com/noa/image/upload",
+                fieldName: 'file'
+            },
+            sizeLimit: 1600 * 1600,
+            // 压缩参数,默认使用localResizeIMG进行压缩,设置为null禁止压缩
+            // compression config,default resize image by localResizeIMG (https://github.com/think2011/localResizeIMG)
+            // set null to disable compression
+            uploadHandler(responseText){
+                let json = JSON.parse(responseText);
+                return json.data.detail_pic_url;
+            }
+        }
+    });
+    var editor = new Vue({
+        el: "#app",
+        data: {
+            content: ""
+        },
+        methods: {
+            getContent: function () {
+                return this.content;
+            },
+            setContent: function (data) {
+                this.content = data;
+            }
+        }
+    })
+</script>
+</body>
+</html>

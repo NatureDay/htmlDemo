@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品介绍</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <script src="./js/wangEditor.js"></script>
+    <!--<link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">-->
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 640) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #app {
+            margin: 1rem auto;
+            max-width: 100%;
+        }
+
+        .w-e-text-container {
+            height: 800px;
+        }
+    </style>
+</head>
+<body id="app">
+
+<script>
+    var E = window.wangEditor;
+    var editor = new E('#app');
+    editor1.customConfig.onchange = function (data) {
+        editor1.txt.html(data)
+    };
+    editor1.customConfig.menus = [
+        'image',  // 插入图片
+        'head',  // 标题
+        'bold',  // 粗体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+//        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+//        'quote',  // 引用
+//        'emoticon',  // 表情
+        'table',  // 表格
+//        'video',  // 插入视频
+//        'code',  // 插入代码
+//        'undo',  // 撤销
+//        'redo'  // 重复
+    ];
+    editor1.customConfig.uploadImgServer = 'http://admintest.qmant.com/noa/image/upload';
+    editor1.customConfig.uploadFileName = 'file';
+    editor1.customConfig.debug = true;
+    editor1.customConfig.zIndex = 1;
+    editor1.customConfig.uploadImgHooks = {
+        customInsert: function (insertImg, result) {
+            var url = result.data.detail_pic_url;
+            insertImg(url)
+        }
+    };
+    editor1.create();
+
+    function getContent() {
+        return editor1.txt.text();
+    }
+
+    function setContent(data) {
+        editor1.txt.html(data);
+    }
+</script>
+</body>
+</html>

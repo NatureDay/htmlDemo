@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>Title</title>
+    <script>
+        function test(className, methodName, params, callback) {
+            //alert('66666666666666666666');
+            callback();
+
+            callbacks['name'] = '666';
+            console.log(JSON.stringify(callbacks));
+
+            delete callbacks['name'];
+            console.log(JSON.stringify(callbacks));
+        }
+
+        var callbacks = {};
+    </script>
+</head>
+<body>
+<div>
+    <button onclick="test('bridge','showToast',{'msg':2444},function(){alert('666')})">
+        测试showToast
+    </button>
+</div>
+</body>
+</html>
