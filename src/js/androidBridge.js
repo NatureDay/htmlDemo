@@ -10,6 +10,16 @@
         isNull: function (data) {
             return data == undefined || data == null || data == "";
         },
+
+        /**
+         * JS调用Java默认实现类
+         * @param methodName            方法名
+         * @param params                参数
+         * @param callback              回调
+         */
+        doDefaultCall: function (methodName, params, callback) {
+            this.doCall("DefaultBridgeImpl", methodName, params, callback);
+        },
         /**
          * JS调用Java
          * @param className             类名
@@ -18,7 +28,7 @@
          * @param callback              回调
          */
         doCall: function (className, methodName, params, callback) {
-            var _this = this;
+            let _this = this;
             if (this.lastCallTime && (Date.now() - this.lastCallTime) < 100) {
                 setTimeout(function () {
                     _this.doCall(className, methodName, params, callback);
@@ -32,14 +42,14 @@
                 return;
             }
 
-            var requestData = {};
+            let requestData = {};
             requestData.javaClassName = className;
             requestData.javaMethodName = methodName;
             if (!this.isNull(params)) {
                 requestData.javaParams = params;
             }
             if (!this.isNull(callback)) {
-                var callbackId = 'callback_' + Math.floor(Math.random() * (1 << 30));
+                let callbackId = 'callback_' + Math.floor(Math.random() * (1 << 30));
                 this.callbacks[callbackId] = callback;
                 requestData.javaCallbackId = callbackId;
             }
@@ -52,7 +62,7 @@
          * @param jsonObj
          */
         callback: function (callbackId, jsonObj) {
-            var callback = this.callbacks[callbackId];
+            let callback = this.callbacks[callbackId];
             if (typeof callback === "function") {
                 callback(jsonObj);
             }
