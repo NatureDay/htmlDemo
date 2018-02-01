@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app" style="color: red">
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.news_id }}
+        </li>
+    </ol>
+</div>
+
+<script>
+    var example = new Vue({
+        el: '#app',
+        data: {
+            todos: []
+        },
+        created: function () {
+            this.fetchData()
+        },
+        methods: {
+            fetchData: function () {
+//                axios.get('http://192.168.5.108:9004/noa/news/news_list?news_type=1&page_size=20&page=1')
+//                    .then(function (response) {
+//                        console.log(response);
+//                        console.log(response.data);
+//                        let i, len, data, todos = [];
+//                        data = response.data.data;
+//                        for (i = 0, len = data.length; i < len; i++) {
+//                            todos.push(data[i]);
+//                        }
+//                        this.todos = todos;
+//                    })
+//                    .catch(function (error) {
+//                        console.log(error);
+//                    });
+            },
+        }
+    });
+    axios.get('http://192.168.5.108:9004/noa/news/news_list?news_type=1&page_size=20&page=1')
+        .then(function (response) {
+            console.log(response);
+//            console.log(response.data);
+//            let i, len, data, todos = [];
+//            data = response.data.data;
+//            for (i = 0, len = data.length; i < len; i++) {
+//                todos.push(data[i]);
+//            }
+//            this.todos = todos;
+            example.todos.push(response.data.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+
+</script>
+</body>
+</html>
